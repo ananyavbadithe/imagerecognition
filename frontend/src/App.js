@@ -1,23 +1,24 @@
 import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
+import axios from 'axios'
 
 function App() {
+  const [image, setImage]=useState(null);
+  const handleUpload=(e)=>{
+    const image= e.target.files[0];
+    axios.get()
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>PicIdentify</h1>
+      <h3>Please upload an image to identify the content</h3>
+
+      <div className="body">
+        <div className="image_upload">
+            <input type="file" onChange={handleUpload}></input>
+        </div>
+      </div>
     </div>
   );
 }
